@@ -19,27 +19,39 @@ public class GoogleLogin extends AppCompatActivity {
 
     GoogleSignInClient mGoogleSignInClient;
     SignInButton button;
-    FirebaseAuth mAuth ;
+    FirebaseAuth mAuth;
     private final static int RC_SIGN_IN = 2;
     GoogleSignInOptions gso;
+
+    private String personName;
+    private String personEmailID;
+    private String personID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facebook_login);
-        button = (SignInButton)findViewById(R.id.google_sign_in);
+        button = (SignInButton) findViewById(R.id.google_sign_in);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signIn();
             }
         });
-
+        personEmailID = "Default ID";
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
 
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+
+        if (acct != null) {
+            personName = acct.getDisplayName();
+            personEmailID = acct.getEmail();
+            personID = acct.getId();
+        }
 
     }
 
@@ -47,13 +59,28 @@ public class GoogleLogin extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        Toast.makeText(this,"already signed in",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "already signed in", Toast.LENGTH_SHORT).show();
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
 
+        if (acct != null) {
+            personName = acct.getDisplayName();
+            personEmailID = acct.getEmail();
+            personID = acct.getId();
+            Intent go = new Intent(getApplicationContext(), MainActivity.class);
+            go.putExtra("emailIdCustomer", personEmailID);
+            go.putExtra("nameCustomer", personName);
+            go.putExtra("IDcustomer", personID);
+            startActivity(go);
+        }
+
+        Toast.makeText(this, "hi " + personName, Toast.LENGTH_SHORT).show();
         updateUI(account);
+
+
     }
 
     private void updateUI(GoogleSignInAccount account) {
-        Toast.makeText(this,"ho gaya sign in",Toast.LENGTH_SHORT);
+        Toast.makeText(this, "ho gaya sign in", Toast.LENGTH_SHORT);
     }
 
     @Override
@@ -68,6 +95,7 @@ public class GoogleLogin extends AppCompatActivity {
             handleSignInResult(task);
         }
     }
+
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
@@ -83,10 +111,31 @@ public class GoogleLogin extends AppCompatActivity {
 
 
     public void signIn() {
-        Toast.makeText(this,"ho gaya sign in",Toast.LENGTH_SHORT).show();
+
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+        Toast.makeText(this,"You are now a member, please Log In",Toast.LENGTH_SHORT).show();
     }
+    public void goToActivity(View view){
+
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+       // Toast.makeText(this, "already signed in", Toast.LENGTH_SHORT).show();
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+
+        if (acct != null) {
+            personName = acct.getDisplayName();
+            personEmailID = acct.getEmail();
+            personID = acct.getId();
+            Intent go = new Intent(getApplicationContext(), MainActivity.class);
+            go.putExtra("emailIdCustomer", personEmailID);
+            go.putExtra("nameCustomer", personName);
+            go.putExtra("IDcustomer", personID);
+            startActivity(go);
+        }
+
+    }
+
+
 
 
 }
