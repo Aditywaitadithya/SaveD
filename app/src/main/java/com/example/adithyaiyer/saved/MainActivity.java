@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -54,6 +56,10 @@ public class MainActivity extends AppCompatActivity
         emailOfPerson = b.getString("emailIdCustomer");
         idOfPerson = b.getString("IDcustomer");
 
+        Bundle data = new Bundle();
+        data.putString("key_value", "String to pass");
+
+
         NavigationView navigationView2 = (NavigationView) findViewById(R.id.nav_view);
         View headerView = navigationView2.getHeaderView(0);
         TextView navUsername = (TextView) headerView.findViewById(R.id.nameDisplayedOnDrawer);
@@ -75,6 +81,16 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Bundle b = getIntent().getExtras();
+        nameOfPerson = b.getString("nameCustomer");
+        emailOfPerson = b.getString("emailIdCustomer");
+        idOfPerson = b.getString("IDcustomer");
     }
 
     @Override
@@ -103,18 +119,29 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        android.support.v4.app.Fragment f =null;
         // Handle navigation view item clicks here.
         int id = item.getItemId();
       
         if (id == R.id.emergency) {
-            // Handle the camera action
+        f = new Emergency_fragment();
+
+
         } else if (id == R.id.profile) {
+            f = new Profile();
 
-        } else if (id == R.id.helplines) {
+        } else if (id == R.id.Favourites) {
 
-        } else if (id == R.id.links) {
+        } else if (id == R.id.search) {
+
+        }else if(id==R.id.helplines){
 
         }
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.emergencyFragment,f);
+        ft.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -137,5 +164,17 @@ public class MainActivity extends AppCompatActivity
                 });
         Intent i = new Intent(this,GoogleLogin.class);
         startActivity(i);
+    }
+
+    public String getNameOfPerson() {
+        return nameOfPerson;
+    }
+
+    public String getEmailOfPerson() {
+        return emailOfPerson;
+    }
+
+    public String getIdOfPerson() {
+        return idOfPerson;
     }
 }
