@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity
             f = new Profile();
 
         } else if (id == R.id.Favourites) {
-
+            f =new Favourites();
         } else if (id == R.id.search) {
 
         }else if(id==R.id.helplines){
