@@ -21,5 +21,6 @@ public interface ApiServiceCustomer {
     @GET("customers/favs/{emailId}")
     Call<List<customer>> getMyCustomerFavs(@Path("emailId") String id);
 
-
+    @GET("customers/search/{emailId}")
+    Call<List<customer>> getMySearchResults(@Path("emailId") String id);
 }

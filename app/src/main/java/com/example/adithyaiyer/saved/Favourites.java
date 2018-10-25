@@ -20,7 +20,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Favourites extends android.support.v4.app.Fragment {
-   private Context thiscontext;
+    private Context thiscontext;
     private customerAdapter mAdapter;
     private List<customer> favList;
     private RecyclerView fav;

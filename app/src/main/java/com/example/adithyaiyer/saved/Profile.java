@@ -26,6 +26,8 @@ public class Profile extends android.support.v4.app.Fragment {
     private EditText med;
     private String email;
     private String name;
+    private EditText city;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class Profile extends android.support.v4.app.Fragment {
         fav3 = (EditText)view.findViewById(R.id.fav3);
         blood = (EditText)view.findViewById(R.id.blood);
         med = (EditText)view.findViewById(R.id.med);
+        city = (EditText)view.findViewById(R.id.spinnerCity);
         MainActivity mainAct = (MainActivity)getActivity();
         email = mainAct.getEmailOfPerson();
         name = mainAct.getNameOfPerson();
@@ -61,9 +64,12 @@ public class Profile extends android.support.v4.app.Fragment {
 
 
 
+
+
+
     }
     private void updateProfile(){
-        customer customerProfileEdited= new customer(name,email,phone.getText().toString(),fav1.getText().toString(),fav2.getText().toString(),fav3.getText().toString(),blood.getText().toString(),med.getText().toString());
+        customer customerProfileEdited= new customer(name,email,phone.getText().toString(),fav1.getText().toString(),fav2.getText().toString(),fav3.getText().toString(),blood.getText().toString(),med.getText().toString(),city.getText().toString());
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ApiServiceCustomer.ROOT_URL)
                 .addConverterFactory(GsonConverterFactory.create()) //Here we are using the GsonConverterFactory to directly convert json data to object

@@ -49,6 +49,18 @@ public class customer {
     @Expose
     private Boolean isPersonInTrouble;
 
+    @SerializedName("city")
+    @Expose
+    private String city;
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -142,7 +154,7 @@ public class customer {
         return super.toString();
     }
 
-    public customer(String usernam,String Email,String phone, String id1,String id2,String id3,String bg, String com){
+    public customer(String usernam,String Email,String phone, String id1,String id2,String id3,String bg, String com,String cityy){
         username=usernam;
         email_id=Email;
         phoneNumber=phone;
@@ -151,6 +163,7 @@ public class customer {
         email_id_friend_3=id3;
         blood_group=bg;
         medical_history=com;
+        city = cityy;
 
     }
 }

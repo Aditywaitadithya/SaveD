@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 public class Helplines extends android.support.v4.app.Fragment{
 
@@ -19,6 +20,8 @@ public class Helplines extends android.support.v4.app.Fragment{
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        WebView browser = (WebView) view.findViewById(R.id.webView);
+        browser.loadUrl("http://www.newincept.com/helpline-numbers-all-over-in-india.html");
 
     }
 }

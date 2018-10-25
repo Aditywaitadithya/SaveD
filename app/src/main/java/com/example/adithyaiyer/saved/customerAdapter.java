@@ -26,6 +26,7 @@ public class customerAdapter extends RecyclerView.Adapter<customerAdapter.Custom
         public Button email;
         public TextView Bg;
         public TextView phoneNo;
+      //  private FusedLocationProviderClient mFusedLocationClient;
 
         public CustomViewHolder(View view) {
             super(view);

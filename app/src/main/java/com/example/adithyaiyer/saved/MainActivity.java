@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity
     GoogleSignInClient mGoogleSignInClient;
     GoogleSignInOptions gso;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -133,9 +134,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.Favourites) {
             f =new Favourites();
         } else if (id == R.id.search) {
-
+            f = new Search();
         }else if(id==R.id.helplines){
-
+                f = new Helplines();
         }
 
         FragmentManager fm = getSupportFragmentManager();
