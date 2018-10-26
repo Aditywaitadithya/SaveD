@@ -6,60 +6,61 @@
     >
 
     <EditText
+        android:id="@+id/phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Phone Number"
-        android:id="@+id/phone"/>
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:hint="Phone Number" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spinnerCity"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:hint="City">
     </EditText>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:hint="Email of Favourite 1"
         android:id="@+id/fav1"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:hint="Email of Favourite 2"
         android:id="@+id/fav2"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:hint="Email of Favourite 3"
         android:id="@+id/fav3"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:hint="Blood Group"
         android:id="@+id/blood"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:hint="Medical History/ allergies"
         android:id="@+id/med"/>
 
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="50dp"
         android:text="Update Profile"
-        android:layout_margin="15dp"
+        android:layout_margin="5dp"
         android:id="@+id/saveProfile"/>
 
 </LinearLayout>

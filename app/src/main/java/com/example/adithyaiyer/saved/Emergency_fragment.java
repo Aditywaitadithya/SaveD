@@ -46,7 +46,8 @@ public class Emergency_fragment extends android.support.v4.app.Fragment {
         call.enqueue(new Callback<customer>() {
             @Override
             public void onResponse(Call<customer> call, Response<customer> response) {
-                disName.setText(response.body().getLocation_lat().toString());
+                if(response.body()!=null){
+                disName.setText(response.body().getLocation_lat().toString());}
             }
 
             @Override

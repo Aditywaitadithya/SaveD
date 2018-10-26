@@ -71,6 +71,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView3 = (NavigationView) findViewById(R.id.action_settings);
 
+        android.support.v4.app.Fragment f =null;
+        f =new Favourites();
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.emergencyFragment,f);
+        ft.commit();
+
 
     }
 

@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="202dp"
-        android:layout_marginStart="21dp"
+        android:layout_marginBottom="191dp"
+        android:layout_marginStart="16dp"
         android:text="Yes"
         tools:ignore="InvalidId" />
 
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/yesButton"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="14dp"
         android:text="No" />
 
     <TextView
