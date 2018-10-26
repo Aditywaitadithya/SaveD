@@ -33,6 +33,10 @@ public class customer {
     @Expose
     private String email_id_friend_3;
 
+    @SerializedName("location_lat")
+    @Expose
+    private String location_lat;
+
     @SerializedName("blood_group")
     @Expose
     private String blood_group;
@@ -147,6 +151,14 @@ public class customer {
 
     public void setPersonInTrouble(Boolean personInTrouble) {
         isPersonInTrouble = personInTrouble;
+    }
+
+    public String getLocation_lat() {
+        return location_lat;
+    }
+
+    public void setLocation_lat(String location_lat) {
+        this.location_lat = location_lat;
     }
 
     @Override

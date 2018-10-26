@@ -10,7 +10,10 @@ import retrofit2.http.Path;
 
 public interface ApiServiceCustomer {
 
-    public static final String ROOT_URL = "http://192.168.1.104:8000/";
+    public static final String ROOT_URL = "http://192.168.1.102:8000/";
+
+    @GET("customers/{emailId}")
+    Call<customer> getCustomer(@Path("emailId") String id);
 
     @GET("customers/")
     Call<List<customer>> getMyJSONCustomer();
@@ -23,4 +26,11 @@ public interface ApiServiceCustomer {
 
     @GET("customers/search/{emailId}")
     Call<List<customer>> getMySearchResults(@Path("emailId") String id);
+
+    @GET("customers/markSafe/{emailId}")
+    Call<List<customer>> markMeSafe(@Path("emailId") String id);
+
+    @GET("customers/markUnsafe/{emailId}")
+    Call<List<customer>> markMeUnSafe(@Path("emailId") String id);
+
 }

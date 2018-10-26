@@ -6,17 +6,27 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <EditText
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search for Name or Blood Group"
-        android:id="@+id/searchText"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        android:id="@+id/searchButton"/>
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/searchText"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:hint="Search for Name or Blood Group" />
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:text="Search" />
+    </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

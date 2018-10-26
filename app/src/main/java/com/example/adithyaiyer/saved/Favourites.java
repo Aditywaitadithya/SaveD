@@ -63,7 +63,7 @@ public class Favourites extends android.support.v4.app.Fragment {
             @Override
             public void onResponse(Call<List<customer>> call, Response<List<customer>> response) {
                 favList = response.body();
-                Toast.makeText(thiscontext,favList.get(1).getEmail_id().toString(),Toast.LENGTH_SHORT).show();
+               // Toast.makeText(thiscontext,favList.get(1).getEmail_id().toString(),Toast.LENGTH_SHORT).show();
                  mAdapter = new customerAdapter(favList ,thiscontext);
                 fav.setAdapter(mAdapter);
                 RecyclerView.LayoutManager eLayoutManager3 = new LinearLayoutManager(getActivity().getApplicationContext());

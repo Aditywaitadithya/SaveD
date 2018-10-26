@@ -2,6 +2,7 @@ package com.example.adithyaiyer.saved;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -26,6 +27,7 @@ public class customerAdapter extends RecyclerView.Adapter<customerAdapter.Custom
         public Button email;
         public TextView Bg;
         public TextView phoneNo;
+        public TextView isTrouble;
       //  private FusedLocationProviderClient mFusedLocationClient;
 
         public CustomViewHolder(View view) {
@@ -35,7 +37,7 @@ public class customerAdapter extends RecyclerView.Adapter<customerAdapter.Custom
             email = (Button) view.findViewById(R.id.viewEmail);
             Bg = (TextView) view.findViewById(R.id.viewBg);
             phoneNo = (TextView) view.findViewById(R.id.viewNumber);
-
+            isTrouble =(TextView)view.findViewById(R.id.safeText);
 
         }
 
@@ -61,6 +63,15 @@ public class customerAdapter extends RecyclerView.Adapter<customerAdapter.Custom
         holder.email.setText(customersIn.get(position).getEmail_id().toString());
         holder.Bg.setText(customersIn.get(position).getBlood_group().toString());
         holder.phoneNo.setText(customersIn.get(position).getPhoneNumber().toString());
+
+        if(customersIn.get(position).getPersonInTrouble()){
+            holder.isTrouble.setText("Not Marked Safe yet");
+            holder.isTrouble.setTextColor(Color.RED);
+        }
+        else{
+            holder.isTrouble.setText("Marked Safe");
+            holder.isTrouble.setTextColor(Color.GREEN);
+        }
 
         holder.phoneNo.setOnClickListener(new View.OnClickListener() {
             @Override
